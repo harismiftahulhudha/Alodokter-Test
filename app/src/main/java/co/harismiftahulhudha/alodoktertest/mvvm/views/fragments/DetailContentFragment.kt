@@ -13,6 +13,7 @@ import co.harismiftahulhudha.alodoktertest.R
 import co.harismiftahulhudha.alodoktertest.customcomponents.GravitySnapCustomComponent
 import co.harismiftahulhudha.alodoktertest.databinding.FragmentDetailContentBinding
 import co.harismiftahulhudha.alodoktertest.mvvm.viewmodels.ContentViewModel
+import co.harismiftahulhudha.alodoktertest.mvvm.views.activities.MainActivity
 import co.harismiftahulhudha.alodoktertest.mvvm.views.adapters.ContentImageAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,6 +32,8 @@ class DetailContentFragment : Fragment(R.layout.fragment_detail_content) {
 
     private fun initComponents(view: View) {
         binding = FragmentDetailContentBinding.bind(view)
+        (requireActivity() as MainActivity).binding.bnvMain.menu.findItem(R.id.homeNav)
+            .setChecked(true)
         binding.apply {
             rvImages.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             rvImages.setHasFixedSize(true)

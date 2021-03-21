@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 else -> {
-                    val action = HomeFragmentDirections.actionHomeFragmentToUserFragment()
+                    val action = HomeFragmentDirections.actionGlobalUserFragment()
                     navController.navigate(action)
                     true
                 }
