@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="co.harismiftahulhudha.alodoktertest.mvvm.views.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailContentFragment"
+            app:destination="@id/detailContentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_optionsContentDialogFragment"
+            app:destination="@id/optionsContentDialogFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="co.harismiftahulhudha.alodoktertest.mvvm.views.fragments.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/detailContentFragment"
+        android:name="co.harismiftahulhudha.alodoktertest.mvvm.views.fragments.DetailContentFragment"
+        android:label="fragment_detail_content"
+        tools:layout="@layout/fragment_detail_content" >
+        <argument
+            android:name="detailModel"
+            app:argType="co.harismiftahulhudha.alodoktertest.mvvm.joinmodels.ContentImageJoinModel" />
+    </fragment>
+    <dialog
+        android:id="@+id/sortContentDialogFragment"
+        android:name="co.harismiftahulhudha.alodoktertest.mvvm.dialogfragments.SortContentDialogFragment"
+        android:label="SortContentDialogFragment" >
+        <argument
+            android:name="isNewest"
+            app:argType="boolean"
+            android:defaultValue="true" />
+    </dialog>
+    <action android:id="@+id/action_global_sortContentDialogFragment" app:destination="@id/sortContentDialogFragment" />
+    <dialog
+        android:id="@+id/optionsContentDialogFragment"
+        android:name="co.harismiftahulhudha.alodoktertest.mvvm.dialogfragments.OptionsContentDialogFragment"
+        android:label="OptionsContentDialogFragment" >
+        <argument
+            android:name="contentImageJoinModel"
+            app:argType="co.harismiftahulhudha.alodoktertest.mvvm.joinmodels.ContentImageJoinModel" />
+    </dialog>
+</navigation>
